@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
@@ -34,8 +35,10 @@ public class FirebaseUtil {
             if(firebaseAuth.getCurrentUser() == null)
             {
                 FirebaseUtil.signIn();
+            }else{
+                Toast.makeText(callerActivity.getBaseContext(), "Welcome back",Toast.LENGTH_LONG).show();
             }
-            Toast.makeText(callerActivity.getBaseContext(), "Welcome back",Toast.LENGTH_LONG).show();
+
         }
     };
     public static ArrayList<TravelDeal> mDeals;
